@@ -1,0 +1,18 @@
+title: "cheesecakecat"
+description: Blog
+baseurl: "" 
+url: "" 
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+# Theme settings
+show_excerpts: true
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/ 
