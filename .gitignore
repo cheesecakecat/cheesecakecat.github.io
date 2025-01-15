@@ -5,6 +5,7 @@ _site/
 .jekyll-metadata
 vendor/
 .bundle/
+Gemfile.lock
 
 # IDE and Editor files
 .vscode/
