@@ -1,0 +1,40 @@
+type(scope): subject line
+
+# Body: explain what and why (not how)
+- 
+- 
+- 
+
+# Breaking Changes (if any):
+
+# Closes: #issue-number (if any)
+
+# ------------------------ Commit Message Guidelines ------------------------
+# Type:
+#   feat     (new feature)
+#   fix      (bug fix)
+#   docs     (documentation changes)
+#   style    (formatting, missing semicolons, etc; no code change)
+#   refactor (refactoring production code)
+#   test     (adding tests, refactoring tests; no production code change)
+#   chore    (updating build tasks, package manager configs, etc)
+#
+# Scope: optional, can be anything specifying the place of change
+#   (site), (blog), (style), (deps), etc.
+#
+# Subject: imperative, start with capital letter, don't end with period
+#   - use imperative, present tense: "change" not "changed"/"changes"
+#   - max 50 chars
+#   - no period at the end
+#
+# Body:
+#   - use bullet points (-)
+#   - start with capital letter
+#   - explain what and why vs. how
+#   - can use multiple lines
+#   - wrap at 72 chars
+#
+# Breaking Changes:
+#   - start with 'BREAKING CHANGE:'
+#
+# ------------------------------------------------------------------------ 

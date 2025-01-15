@@ -1,0 +1,32 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# Documents
+*.md text diff=markdown
+*.txt text
+*.yml text
+*.yaml text
+
+# Scripts
+*.sh text eol=lf
+*.ps1 text eol=crlf
+
+# Web
+*.css text diff=css
+*.html text diff=html
+*.js text
+*.json text
+*.scss text diff=css
+
+# Graphics
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.svg text
+
+# Jekyll specific
+_site/ export-ignore
+.sass-cache/ export-ignore
+.jekyll-cache/ export-ignore
+.jekyll-metadata export-ignore 
