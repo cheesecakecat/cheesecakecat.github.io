@@ -1,0 +1,97 @@
+
+
+---
+layout: post
+blog-title: "Style Demonstration: A Complete Guide"
+blog-tag: Guide
+---
+
+# Heading Level 1
+This is a demonstration of the largest heading style. It's typically used for the main title of a section.
+
+## Heading Level 2
+Here's a secondary heading, commonly used for major sections within your content.
+
+### Heading Level 3
+Perfect for subsections and more specific topics.
+
+#### Heading Level 4
+Getting more granular with our headings.
+
+##### Heading Level 5
+Even smaller, but still distinct.
+
+###### Heading Level 6
+The smallest heading size, but still maintains hierarchy.
+
+## Text Formatting
+
+This is a regular paragraph with **bold text** and *italic text*. You can also use ***bold and italic*** together. Here's a [link to Google](https://google.com) that shows our accent color and hover effect.
+
+Here's a paragraph with some `inline code` that demonstrates our monospace font and background styling.
+
+## Blockquotes
+
+> This is a blockquote. It's perfect for highlighting important information or including quotes from other sources. Notice the subtle background and left border that makes it stand out.
+>
+> You can have multiple paragraphs in a blockquote.
+
+## Code Blocks
+
+Here's a code block with syntax highlighting:
+
+```python
+def hello_world():
+    print("Hello, World!")
+
+    # This is a comment
+    for i in range(5):
+        print(f"Count: {i}")
+
+class Example:
+    def __init__(self):
+        self.value = "Demo"
+```
+
+## Lists
+
+### Unordered List
+- First item in an unordered list
+- Second item with some **bold text**
+- Third item with some *italic text*
+  - Nested item one
+  - Nested item two
+- Fourth item
+
+### Ordered List
+1. First item in an ordered list
+2. Second item with a [link](#)
+3. Third item with `inline code`
+   1. Nested ordered item
+   2. Another nested item
+4. Fourth item
+
+## Tables
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| Typography | Text styling and formatting | ✅ |
+| Code Blocks | Syntax highlighting and formatting | ✅ |
+| Lists | Ordered and unordered lists | ✅ |
+| Blockquotes | Quote styling | ✅ |
+
+## Images
+
+Here's how images are displayed (this is a placeholder image):
+
+![Demo Image](/assets/images/avatar.jpg)
+
+## Horizontal Rule
+
+Here's a horizontal rule to separate sections:
+
+---
+
+## Final Paragraph
+
+This is a final paragraph to demonstrate the spacing and line height of our text. It includes multiple sentences to show how longer blocks of text are displayed. The line height should make this very readable while maintaining a clean aesthetic. Notice how the text color and background create perfect contrast for readability.

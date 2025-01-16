@@ -7,6 +7,7 @@ gem "github-pages", group: :jekyll_plugins
 group :jekyll_plugins do
   gem "jekyll-feed"
   gem "jekyll-seo-tag"
+  gem "jekyll-paginate"
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -20,4 +21,4 @@ end
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 # Required for Ruby >= 3.0
-gem "webrick" 
+gem "webrick"

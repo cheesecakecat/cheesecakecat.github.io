@@ -3,14 +3,121 @@ layout: default
 title: Blog
 ---
 
-<h1>Blog Posts</h1>
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/main.js"></script>
 
-<ul class="post-list">
-    {% for post in site.posts %}
-    <li class="post-item">
-        <h2><a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a></h2>
-        <div class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</div>
-        <p>{{ post.excerpt }}</p>
-    </li>
-    {% endfor %}
-</ul> 
+<div class="top-bar">
+    <nav class="nav-links">
+        <a href="/">ABOUT</a>
+        <a href="/blog">BLOG</a>
+    </nav>
+</div>
+
+<div class="content">
+    <div class="blog-layout">
+        <aside class="blog-sidebar">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search posts..." class="search-input">
+            </div>
+            <div class="tag-list">
+                <h3 class="tag-heading">Categories</h3>
+                <button class="tag-filter active" data-tag="all">All Posts</button>
+                {% assign tags = site.posts | map: "blog-tag" | uniq %}
+                {% for tag in tags %}
+                <button class="tag-filter" data-tag="{{ tag }}">{{ tag }}</button>
+                {% endfor %}
+            </div>
+        </aside>
+
+        <main class="blog-main">
+            <div class="blog-grid">
+                {% for post in paginator.posts %}
+                <a href="{{ post.url }}" class="blog-preview" data-tags="{{ post.blog-tag | downcase }}"
+                    data-title="{{ post.blog-title }}" data-excerpt="{{ post.blog-excerpt }}">
+                    <div class="blog-preview-image">
+                        <div class="placeholder-image"></div>
+                    </div>
+                    <div class="blog-preview-content">
+                        <div class="blog-meta">
+                            <time>{{ post.date | date: "%B %d, %Y" }}</time>
+                            {% if post.blog-tag %}
+                            <span class="blog-tag">{{ post.blog-tag }}</span>
+                            {% endif %}
+                        </div>
+                        <h2 class="blog-title">{{ post.blog-title }}</h2>
+                        <p class="blog-excerpt">{{ post.blog-excerpt }}</p>
+                        <div class="blog-footer">
+                            <span class="read-more">Read More →</span>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+
+            {% if paginator.total_pages > 1 %}
+            <div class="pagination">
+                {% if paginator.previous_page %}
+                {% if paginator.previous_page == 1 %}
+                <a href="{{ '/blog' | relative_url }}" class="pagination-item">← Previous</a>
+                {% else %}
+                <a href="{{ '/blog/page/' | append: paginator.previous_page | relative_url }}" class="pagination-item">←
+                    Previous</a>
+                {% endif %}
+                {% endif %}
+
+                {% for page in (1..paginator.total_pages) %}
+                {% if page == paginator.page %}
+                <span class="pagination-item active">{{ page }}</span>
+                {% elsif page == 1 %}
+                <a href="{{ '/blog' | relative_url }}" class="pagination-item">{{ page }}</a>
+                {% else %}
+                <a href="{{ '/blog/page/' | append: page | relative_url }}" class="pagination-item">{{ page }}</a>
+                {% endif %}
+                {% endfor %}
+
+                {% if paginator.next_page %}
+                <a href="{{ '/blog/page/' | append: paginator.next_page | relative_url }}" class="pagination-item">Next
+                    →</a>
+                {% endif %}
+            </div>
+            {% endif %}
+        </main>
+    </div>
+</div>
+
+<div class="toast">Copied</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const tagFilters = document.querySelectorAll('.tag-filter');
+        const blogPosts = document.querySelectorAll('.blog-preview');
+        let activeTag = 'all';
+
+        function filterPosts() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            blogPosts.forEach(post => {
+                const title = post.getAttribute('data-title');
+                const excerpt = post.getAttribute('data-excerpt');
+                const tags = post.getAttribute('data-tags');
+
+                const matchesSearch = title.includes(searchTerm) || excerpt.includes(searchTerm);
+                const matchesTag = activeTag === 'all' || tags === activeTag;
+
+                post.style.display = matchesSearch && matchesTag ? 'block' : 'none';
+            });
+        }
+
+        searchInput.addEventListener('input', filterPosts);
+
+        tagFilters.forEach(button => {
+            button.addEventListener('click', () => {
+                tagFilters.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                activeTag = button.getAttribute('data-tag');
+                filterPosts();
+            });
+        });
+    });
+</script>

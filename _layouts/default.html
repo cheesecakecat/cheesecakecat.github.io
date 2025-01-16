@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,89 +8,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-primary: #0a0b0e;
-            --text-primary: #e2e8f0;
-            --text-secondary: #a1a1aa;
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 0.75rem;
-            --spacing-md: 1.25rem;
-            --spacing-lg: 2rem;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.5;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 65rem;
-            margin: 0 auto;
-            padding: 0 var(--spacing-md);
-        }
-
-        .content {
-            padding: var(--spacing-md) 0;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--text-primary);
-            line-height: 1.2;
-            margin-bottom: var(--spacing-md);
-            font-weight: 600;
-        }
-
-        h1 { 
-            font-size: 2.25rem; 
-            letter-spacing: -0.5px;
-        }
-
-        h2 { 
-            font-size: 1.5rem; 
-            margin-top: var(--spacing-lg);
-        }
-
-        h3 { font-size: 1.25rem; }
-
-        p {
-            margin-bottom: var(--spacing-md);
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            :root {
-                --spacing-md: 1rem;
-                --spacing-lg: 1.5rem;
-            }
-            
-            .container {
-                padding: 0 var(--spacing-sm);
-            }
-            
-            h1 { font-size: 1.75rem; }
-            h2 { font-size: 1.25rem; }
-            h3 { font-size: 1.125rem; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css"
+        rel="stylesheet" />
 </head>
+
 <body>
     {{ content }}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script>
+        // Add header linking
+        document.addEventListener('DOMContentLoaded', function () {
+            const headers = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6');
+            headers.forEach(header => {
+                const id = header.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                header.id = id;
+
+                const link = document.createElement('a');
+                link.href = `#${id}`;
+                link.className = 'header-link';
+                link.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>';
+
+                header.appendChild(link);
+            });
+        });
+    </script>
 </body>
+
 </html>
