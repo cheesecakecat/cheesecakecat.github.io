@@ -22,7 +22,7 @@ title: Blog
             <div class="tag-list">
                 <h3 class="tag-heading">Categories</h3>
                 <button class="tag-filter active" data-tag="all">All Posts</button>
-                {% assign tags = site.posts | map: "blog-tag" | uniq %}
+                {% assign tags = site.posts | map: "tag" | uniq %}
                 {% for tag in tags %}
                 <button class="tag-filter" data-tag="{{ tag }}">{{ tag }}</button>
                 {% endfor %}
@@ -32,20 +32,20 @@ title: Blog
         <main class="blog-main">
             <div class="blog-grid">
                 {% for post in paginator.posts %}
-                <a href="{{ post.url }}" class="blog-preview" data-tags="{{ post.blog-tag | downcase }}"
-                    data-title="{{ post.blog-title }}" data-excerpt="{{ post.blog-excerpt }}">
+                <a href="{{ post.url }}" class="blog-preview" data-tags="{{ post.tag | downcase }}"
+                    data-title="{{ post.title }}" data-excerpt="{{ post.excerpt }}">
                     <div class="blog-preview-image">
                         <div class="placeholder-image"></div>
                     </div>
                     <div class="blog-preview-content">
                         <div class="blog-meta">
                             <time>{{ post.date | date: "%B %d, %Y" }}</time>
-                            {% if post.blog-tag %}
-                            <span class="blog-tag">{{ post.blog-tag }}</span>
+                            {% if post.tag %}
+                            <span class="blog-tag">{{ post.tag }}</span>
                             {% endif %}
                         </div>
-                        <h2 class="blog-title">{{ post.blog-title }}</h2>
-                        <p class="blog-excerpt">{{ post.blog-excerpt }}</p>
+                        <h2 class="blog-title">{{ post.title }}</h2>
+                        <p class="blog-excerpt">{{ post.excerpt }}</p>
                         <div class="blog-footer">
                             <span class="read-more">Read More →</span>
                         </div>

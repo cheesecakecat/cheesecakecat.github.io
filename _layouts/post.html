@@ -12,8 +12,8 @@ layout: default
         <h1 class="post-title">{{ page.title }}</h1>
         <div class="post-meta">
             <time>{{ page.date | date: "%B %d, %Y" }}</time>
-            {% if page.blog-tag %}
-            <span class="blog-tag">{{ page.blog-tag }}</span>
+            {% if page.tag %}
+            <span class="blog-tag">{{ page.tag }}</span>
             {% endif %}
         </div>
     </header>

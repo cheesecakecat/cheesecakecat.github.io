@@ -20,7 +20,8 @@ This is my personal site. Just a cozy space where I post stuff and things.
   ---
   layout: post
   title: "Your Title Here"
-  blog-tag: Whatever
+  excerpt: "What am I going to talk about here"
+  tag: Whatever
   ---
   ```
 

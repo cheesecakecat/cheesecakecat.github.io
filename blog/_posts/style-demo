@@ -2,8 +2,9 @@
 
 ---
 layout: post
-blog-title: "Style Demonstration: A Complete Guide"
-blog-tag: Guide
+title: "Style Demonstration: A Complete Guide"
+excerpt: "You can see how I use style here."
+tag: Guide
 ---
 
 # Heading Level 1
